@@ -38,5 +38,11 @@ end
 
 #like(mon_client) 
 
+def follow(client_def)
+  client_def.search("#bonjour_monde", result_type: "recent").take(5).collect do |i|
+    client_def.follow(i.user)
+  end
+end
 
+follow(mon_client)
 
